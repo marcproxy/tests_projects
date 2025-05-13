@@ -14,6 +14,7 @@ jobs:
         working-directory: packages/node
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/upload-artifact@v3
 
       - name: Use Node.js 16
         uses: actions/setup-node@v3
