@@ -1,20 +1,34 @@
-import React, { useState } from "react";
-interface Props {
+import React, { useState } from 'react';
+
+interface UserFormProps {
   onCreated: (name: string) => void;
 }
-export function UserForm({ onCreated }: Props) {
-  const [name, setName] = useState("");
+
+export const UserForm: React.FC<UserFormProps> = ({ onCreated }) => {
+  const [name, setName] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Ne pas appeler onCreated si le nom est vide
+    if (name.trim()) {
+      onCreated(name);
+      setName(''); // Réinitialiser le champ après la soumission
+    }
+  };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        onCreated(name);
-      }}
-    >
-      <label htmlFor="name">Nom :</label>
-      <input id="name" value={name} onChange={(e) => setName(e.target.value)} />
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Nom:</label>
+        <input
+          id="name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
       <button type="submit">Créer</button>
     </form>
   );
-}
+};

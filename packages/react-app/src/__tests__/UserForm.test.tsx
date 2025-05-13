@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { UserForm } from '../src/components/UserForm';
+import { UserForm } from '../components/UserForm';
 
 describe('UserForm Component', () => {
   it('appel onCreated avec le bon nom au submit', async () => {
@@ -15,6 +15,7 @@ describe('UserForm Component', () => {
     
     // Soumettre le formulaire
     const button = screen.getByRole('button', { name: /créer/i });
+
     await userEvent.click(button);
     
     // Vérifier que onCreated a été appelé avec le bon argument
@@ -28,6 +29,7 @@ describe('UserForm Component', () => {
     
     // Cliquer sur le bouton sans entrer de texte
     const button = screen.getByRole('button', { name: /créer/i });
+
     await userEvent.click(button);
     
     // Vérifier que onCreated n'a pas été appelé
