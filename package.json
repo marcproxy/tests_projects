@@ -1,0 +1,21 @@
+{
+  "name": "tests-from-scratch",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/node",
+    "packages/react-app",
+    "packages/ng-app"
+  ],
+  "scripts": {
+    "build:node": "yarn workspace node tsc",
+    "start:node": "yarn workspace node node dist/index.js",
+    "build:react": "yarn workspace react-app build",
+    "start:react": "yarn workspace react-app start",
+    "build:ng": "yarn workspace ng-app build",
+    "start:ng": "yarn workspace ng-app start"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14"
+  }
+}
