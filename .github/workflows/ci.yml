@@ -13,10 +13,10 @@ jobs:
       run:
         working-directory: packages/node
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4  # Dernière version
 
       - name: Use Node.js 16
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # Dernière version
         with:
           node-version: '16'
 
@@ -27,7 +27,7 @@ jobs:
         run: yarn test
 
       - name: Upload coverage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Dernière version
         with:
           name: coverage-node
           path: packages/node/coverage
