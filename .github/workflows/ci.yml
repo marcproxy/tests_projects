@@ -26,9 +26,6 @@ jobs:
       - name: Run tests
         run: yarn test
 
-      # Utiliser un SHA spécifique pour l'action upload-artifact
-      - name: Upload coverage
-        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
-        with:
-          name: coverage-node
-          path: packages/node/coverage
+      # Afficher les résultats de couverture dans les logs
+      - name: Display coverage summary
+        run: cat coverage/lcov-report/index.html | grep -o '<span class="strong">[^<]*' || echo "No coverage report found"
