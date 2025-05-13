@@ -13,12 +13,12 @@ jobs:
       run:
         working-directory: packages/node
     steps:
-      - uses: actions/checkout@v4  # Dernière version
+      - uses: actions/checkout@v3
 
-      - name: Use Node.js 16
-        uses: actions/setup-node@v4  # Dernière version
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'  # Mise à jour de 16 à 18
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -27,7 +27,7 @@ jobs:
         run: yarn test
 
       - name: Upload coverage
-        uses: actions/upload-artifact@v4  # Dernière version
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-node
           path: packages/node/coverage
