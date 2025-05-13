@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Mise à jour de 16 à 18
+          node-version: '18'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -26,8 +26,9 @@ jobs:
       - name: Run tests
         run: yarn test
 
+      # Utiliser v2 au lieu de v3
       - name: Upload coverage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: coverage-node
           path: packages/node/coverage
