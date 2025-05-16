@@ -20,7 +20,9 @@
     "e2e:debug": "playwright test --config=e2e/playwright.config.ts --debug",
     "e2e:specific": "playwright test e2e/tests/basic.spec.ts --config=e2e/playwright.config.ts",
     "e2e:list": "playwright test --config=e2e/playwright.config.ts --list",
-    "start:react:no-overlay": "node start-react-no-overlay.js"
+    "start:react:no-overlay": "node start-react-no-overlay.js",
+    "coverage": "yarn workspace react-app test:coverage",
+    "e2e:coverage": "PLAYWRIGHT_TEST_COVERAGE=1 yarn e2e"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
